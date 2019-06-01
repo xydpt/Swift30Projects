@@ -29,7 +29,7 @@ class AddContactViewController: UIViewController {
     pickerMonth.delegate = self
     txtLastName.delegate = self
     
-    let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(AddContactViewController.performDoneItemTap))
+    let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(AddContactViewController.performDoneItemTap))
     navigationItem.rightBarButtonItem = doneBarButtonItem
   }
 }
@@ -111,7 +111,7 @@ extension AddContactViewController: UITextFieldDelegate {
   
   // MARK: Custom functions
   
-  func performDoneItemTap() {
+  @objc func performDoneItemTap() {
     AppDelegate.appDelegate.requestForAccess { (accessGranted) -> Void in
       if accessGranted {
         var contacts = [CNContact]()
